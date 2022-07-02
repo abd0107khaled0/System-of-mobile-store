@@ -1,0 +1,46 @@
+ if (searchTi === "searchTitle") {
+        let d = array.filter((e) => {
+            return e.title.includes(search.value);
+        });
+        console.log(d)
+        let table = "";
+        for (let i = 0; i < d.length; i++) {
+            table += `
+            <tr>
+            <td>${i + 1}</td>
+            <td>${d[i].title}</td>
+            <td>${d[i].price}</td>
+            <td>${d[i].taxs}</td>
+            <td>${d[i].ads}</td>
+            <td>${d[i].discount}</td>
+            <td>${d[i].total}</td>
+            <td>${d[i].category}</td>
+            <td><button id="update" onclick="update(${i})">update</button></td>
+            <td><button id="delete"  onclick="dele(${i})">delete</button></td>
+        </tr>
+        `;
+        }
+        tbody.innerHTML = table;
+    } else {
+        let c = array.filter((e) => {
+            return e.category.includes(search.value);
+        });
+        let table = "";
+        for (let i = 0; i < c.length; i++) {
+            table += `
+                <tr>
+                <td>${i + 1}</td>
+                <td>${c[i].title}</td>
+                <td>${c[i].price}</td>
+                <td>${c[i].taxs}</td>
+                <td>${c[i].ads}</td>
+                <td>${c[i].discount}</td>
+                <td>${c[i].total}</td>
+                <td>${c[i].category}</td>
+                <td><button id="update" onclick="update(${i})">update</button></td>
+                <td><button id="delete"  onclick="dele(${i})">delete</button></td>
+                </tr>
+                `;
+        }
+        tbody.innerHTML = table;
+    }
